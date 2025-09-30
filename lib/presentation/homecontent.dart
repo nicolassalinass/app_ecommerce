@@ -28,58 +28,6 @@ class _HomecontentState extends State<Homecontent> {
               ),
             ),
           ),
-          /*Row(
-            spacing: 20,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ChoiceChip(
-                selected: true,
-                label: Text("Todos"),
-                showCheckmark: false,
-                onSelected: (value) {
-                  setState(() {
-                    
-                  });
-                },
-                //backgroundColor: Colors.white24,
-                // shape: StadiumBorder(
-                //   side: BorderSide(
-                //     color: Colors.white24,
-                //   ),
-                // ),
-
-              ),
-              ChoiceChip(
-                selected: false,
-                label: Text("Ofertas"),
-                // shape: StadiumBorder(
-                //   side: BorderSide(
-                //     color: Colors.white24,
-                //   ),
-                // ),
-              ),
-              ChoiceChip(
-                selected: false,
-                label: Text("Novedades"),
-                // shape: StadiumBorder(
-                //   side: BorderSide(
-                //     color: Colors.white24,
-                //   ),
-                // ),
-              ),
-              ChoiceChip(
-                selected: false,
-                label: Text("Populares"),
-                // shape: StadiumBorder(
-                //   side: BorderSide(
-                //     color: Colors.white24,
-                //   ),
-                // ),
-              ),
-            ],
-          ),*/
-          
           Wrap(
               spacing: 16,
               children: List<Widget>.generate(options.length, (i) {
