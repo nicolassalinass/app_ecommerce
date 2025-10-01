@@ -1,5 +1,5 @@
 import 'package:app_ecomerce/config/theme.dart';
-import 'package:app_ecomerce/presentation/home_screen.dart';
+import 'package:app_ecomerce/presentation/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.system,
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
-
