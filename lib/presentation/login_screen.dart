@@ -51,9 +51,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextField(
                       controller: emailController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
-                        ),
                         prefixIcon: Icon(Icons.person),
                         // prefixIconColor: Colors.white      ------- Forma alternativa de relizar el cambio de color del icono
                         // label: Text("Correo"),
@@ -61,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: "ejemplo123@gmail.com",
                         // hintStyle: TextStyle(color: Colors.white),
                       ),
+                      cursorColor: Colors.blueGrey,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -86,6 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // label: Text("Contraseña"),
                         hintText: "12345678.ejemplo",
                       ),
+                      cursorColor: Colors.blueGrey,
                     ),
                   ),
                 ],
@@ -99,7 +98,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     final password = passwordController.text.trim();
                     if (email.isEmpty || password.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Complete todos los campos!")),
+                        SnackBar(
+                          content: Text(
+                            "Complete todos los campos!",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          backgroundColor: Colors.red,
+                        ),
                       );
                     } else {
                       Navigator.of(context).pushReplacement(
@@ -118,9 +126,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       return const Color.fromARGB(255, 63, 207, 34);
                     }),
                   ),
-                  child: Text(
-                    "Iniciar Sesión",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                    child: Text(
+                      "Iniciar Sesión",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                 ),
               ),
