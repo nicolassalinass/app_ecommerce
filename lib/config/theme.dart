@@ -37,8 +37,16 @@ class AppTheme {
       labelStyle: TextStyle(color: Colors.black, fontSize: 16),
       filled: true,
       fillColor: Colors.grey.shade200,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+      // border: OutlineInputBorder(
+      //   borderRadius: BorderRadius.circular(10),
+      //   borderSide: BorderSide.none,
+      // ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
         borderSide: BorderSide.none,
       ),
       prefixIconColor: Colors.grey.shade700,
@@ -90,8 +98,16 @@ class AppTheme {
       labelStyle: TextStyle(color: Colors.grey, fontSize: 16),
       filled: true,
       fillColor: Colors.grey.shade900,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+      // border: OutlineInputBorder(
+      //   borderRadius: BorderRadius.circular(10),
+      //   borderSide: BorderSide.none,
+      // ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50),
         borderSide: BorderSide.none,
       ),
       prefixIconColor: Colors.grey,
