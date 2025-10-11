@@ -4,21 +4,26 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: Colors.white,
-    //colorScheme: ColorScheme.fromSeed(seedColor: Colors.white, brightness: Brightness.light),
+    colorScheme: ColorScheme.fromSeed(
+      primary: Colors.blue,
+      secondary: Colors.lightBlueAccent,
+      onPrimary: Colors.white,
+      seedColor: Colors.white, 
+      brightness: Brightness.light
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       shape: Border(bottom: BorderSide(color: Colors.grey.shade300, width: 1)),
     ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: Colors.white,
-      indicatorColor: const Color.fromARGB(255, 1, 116, 248),
+      indicatorColor: const Color.fromARGB(255, 49, 144, 253),
       iconTheme: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
           return IconThemeData(color: Colors.white);
         }
         return IconThemeData(color: Colors.black);
       }),
-      height: 60,
       overlayColor: WidgetStatePropertyAll(Colors.transparent),
       labelTextStyle: WidgetStatePropertyAll(
         TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
@@ -76,8 +81,11 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: Colors.black,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.black,
+    colorScheme: ColorScheme.dark(
+      primary: Colors.blue,
+      secondary: Colors.lightBlueAccent,
+      onPrimary: Colors.white,
+      surface: Color(0xFF1E1E1E),
       brightness: Brightness.dark,
     ),
     appBarTheme: AppBarTheme(
@@ -85,11 +93,16 @@ class AppTheme {
       shape: Border(bottom: BorderSide(color: Colors.grey.shade400, width: 1)),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      height: 60,
       backgroundColor: Colors.black,
       indicatorColor: Colors.grey.shade800,
       surfaceTintColor: Colors.transparent,
       overlayColor: WidgetStatePropertyAll(Colors.transparent),
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return IconThemeData(color: Colors.blueAccent);
+        }
+        return IconThemeData(color: Colors.white);
+      }),
       labelTextStyle: WidgetStatePropertyAll(
         TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
       ),
