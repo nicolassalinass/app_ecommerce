@@ -63,9 +63,9 @@ class _HomecontentState extends State<Homecontent> {
         );
       case 1:
         return ProductCard(
-          title: 'Samsung Galaxy S21',
-          price: '3.000.000',
-          imageUrl: 'assets/laptop.png',
+          title: 'Audofono Redragon H510 ZEUS',
+          price: '350.000',
+          imageUrl: 'assets/redragon3.jpg',
         );
       case 2:
         return ProductCard(
