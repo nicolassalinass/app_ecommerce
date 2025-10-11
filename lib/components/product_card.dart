@@ -1,3 +1,4 @@
+import 'package:app_ecomerce/presentation/detail_product_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -16,50 +17,55 @@ class ProductCard extends StatelessWidget {
           ),
           itemCount: 50,
           itemBuilder: (context, index) {
-            return Card(
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.circular(15),
-                
-              // ),
-              //elevation: 0,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-                      child: Image.asset(
-                        imageUrl,
-                        fit: BoxFit.fill,
-                        height: 150,
-                        width: double.infinity,
+            return InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailProductScreen(),));
+              },
+              child: Card(
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: BorderRadius.circular(15),
+                  
+                // ),
+                //elevation: 0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                        child: Image.asset(
+                          imageUrl,
+                          fit: BoxFit.fill,
+                          height: 150,
+                          width: double.infinity,
+                        ),
                       ),
-                    ),
-                  ),    
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title, 
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18
+                    ),    
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title, 
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
                           ),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                        ),
-                        Text('Gs.$price',
-                          style: TextStyle(
-                            fontSize: 16
+                          Text('Gs.$price',
+                            style: TextStyle(
+                              fontSize: 16
+                            ),
+                            textAlign: TextAlign.end,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          textAlign: TextAlign.end,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),        
-                ],
+                        ],
+                      ),
+                    ),        
+                  ],
+                ),
               ),
             );
       },
