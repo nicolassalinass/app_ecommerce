@@ -4,11 +4,10 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: Colors.white,
-    colorScheme: ColorScheme.fromSeed(
-      primary: Colors.blue,
-      secondary: Colors.lightBlueAccent,
+    colorScheme: ColorScheme.light(
+      primary: Colors.blue.shade800,
+      secondary: const Color.fromARGB(255, 215, 237, 255),
       onPrimary: Colors.white,
-      seedColor: Colors.white, 
       brightness: Brightness.light
     ),
     appBarTheme: AppBarTheme(
@@ -80,37 +79,41 @@ class AppTheme {
 
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Color(0xFF0B132B),
     colorScheme: ColorScheme.dark(
       primary: Colors.blue,
-      secondary: Colors.lightBlueAccent,
+      secondary: const Color(0xFF162553),
       onPrimary: Colors.white,
-      surface: Color(0xFF1E1E1E),
+      //background: const Color(0xFF0B132B),,
+      //surface: Color(0xFF1E1E1E),
+      surface: Color(0xFF0B132B),
       brightness: Brightness.dark,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF0B132B),
       shape: Border(bottom: BorderSide(color: Colors.grey.shade400, width: 1)),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: Colors.black,
-      indicatorColor: Colors.grey.shade800,
+      backgroundColor: Color(0xFF0B132B),
+      //indicatorColor: Colors.grey.shade800,
+      indicatorColor: Color.fromARGB(255, 31, 33, 54),
       surfaceTintColor: Colors.transparent,
       overlayColor: WidgetStatePropertyAll(Colors.transparent),
       iconTheme: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
           return IconThemeData(color: Colors.blueAccent);
         }
-        return IconThemeData(color: Colors.white);
+        return IconThemeData(color: Colors.grey.shade400);
       }),
       labelTextStyle: WidgetStatePropertyAll(
-        TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Colors.grey, fontSize: 16),
       filled: true,
-      fillColor: Colors.grey.shade900,
+      //fillColor: Colors.grey.shade900,
+      fillColor: Color.fromARGB(255, 31, 33, 54),
       // border: OutlineInputBorder(
       //   borderRadius: BorderRadius.circular(10),
       //   borderSide: BorderSide.none,
@@ -136,9 +139,18 @@ class AppTheme {
       side: BorderSide(color: Colors.grey.shade800),
       shape: StadiumBorder(),
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      selectedColor: Colors.grey.shade800,
+      selectedColor: Colors.blueAccent,
       //secondarySelectedColor: Colors.grey.shade700,
       brightness: Brightness.dark,
+    ),
+    cardTheme: CardThemeData(
+      color: Color.fromARGB(255, 31, 33, 54),
+      shadowColor: Colors.grey.shade200,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+        //side: BorderSide(color: Colors.blue),
+      ),
+      elevation: 0,
     ),
   );
 }
