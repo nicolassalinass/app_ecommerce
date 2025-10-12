@@ -56,7 +56,9 @@ class ProductCard extends StatelessWidget {
                           ),
                           Text('Gs.$price',
                             style: TextStyle(
-                              fontSize: 16
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                             textAlign: TextAlign.end,
                             overflow: TextOverflow.ellipsis,
