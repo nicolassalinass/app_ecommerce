@@ -61,7 +61,7 @@ class DetailProductScreen extends StatelessWidget {
               child: FloatingActionButton(
                 heroTag: "add_to_cart",
                 onPressed: null,
-                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                foregroundColor: Theme.of(context).colorScheme.primary,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
