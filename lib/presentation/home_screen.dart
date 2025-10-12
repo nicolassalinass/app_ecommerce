@@ -41,35 +41,40 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: pages[_selecterdIndex],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _selecterdIndex,
-        onDestinationSelected: (value) {
-          setState(() {
-            _selecterdIndex = value;
-          });
-        },
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined), 
-            label: 'Inicio',
-            selectedIcon: Icon(Icons.home),
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.list_outlined), 
-            label: 'Categorias',
-            selectedIcon: Icon(Icons.view_list_rounded),
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.shopping_cart_outlined), 
-            label: 'Carrito',
-            selectedIcon: Icon(Icons.shopping_cart),
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_outline), 
-            label: 'Perfil',
-            selectedIcon: Icon(Icons.person),
-          ),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(color: Colors.grey.shade300,width: 0.2)),
+        ),
+        child: NavigationBar(
+          selectedIndex: _selecterdIndex,
+          onDestinationSelected: (value) {
+            setState(() {
+              _selecterdIndex = value;
+            });
+          },
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined), 
+              label: 'Inicio',
+              selectedIcon: Icon(Icons.home),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.category_outlined), 
+              label: 'Categorias',
+              selectedIcon: Icon(Icons.category_rounded),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.shopping_cart_outlined), 
+              label: 'Carrito',
+              selectedIcon: Icon(Icons.shopping_cart),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person_outline), 
+              label: 'Perfil',
+              selectedIcon: Icon(Icons.person),
+            ),
+          ],
+        ),
       ),
     );
   }
