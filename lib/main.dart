@@ -1,5 +1,5 @@
-import 'package:app_ecomerce/config/theme.dart';
-import 'package:app_ecomerce/presentation/login_screen.dart';
+import 'package:app_ecomerce/config/theme/theme.dart';
+import 'package:app_ecomerce/features/auth/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:app_ecomerce/presentation/detail_product_screen.dart';
+import 'package:app_ecomerce/features/products/detail_product_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {

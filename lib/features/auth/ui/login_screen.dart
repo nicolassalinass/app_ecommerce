@@ -1,4 +1,4 @@
-import 'package:app_ecomerce/presentation/home_screen.dart';
+import 'package:app_ecomerce/features/home/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {

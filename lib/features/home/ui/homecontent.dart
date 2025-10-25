@@ -1,4 +1,4 @@
-import 'package:app_ecomerce/components/product_card.dart';
+import 'package:app_ecomerce/features/products/product_card.dart';
 import 'package:flutter/material.dart';
 
 class Homecontent extends StatefulWidget {

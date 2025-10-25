@@ -1,4 +1,4 @@
-import 'package:app_ecomerce/components/card_product_cart.dart';
+import 'package:app_ecomerce/features/products/card_product_cart.dart';
 import 'package:flutter/material.dart';
 
 class CartShoppingScreen extends StatelessWidget {

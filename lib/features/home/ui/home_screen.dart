@@ -1,7 +1,7 @@
-import 'package:app_ecomerce/presentation/cart_shopping_screen.dart';
-import 'package:app_ecomerce/presentation/categories_screen.dart';
-import 'package:app_ecomerce/presentation/client_account_screen.dart';
-import 'package:app_ecomerce/presentation/homecontent.dart';
+import 'package:app_ecomerce/features/cart/ui/cart_shopping_screen.dart';
+import 'package:app_ecomerce/features/category/ui/categories_screen.dart';
+import 'package:app_ecomerce/features/account_settings/ui/pages/client_account_screen.dart';
+import 'package:app_ecomerce/features/home/ui/homecontent.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
