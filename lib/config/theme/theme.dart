@@ -93,6 +93,11 @@ class AppTheme {
       backgroundColor: Color(0xFF0B132B),
       shape: Border(bottom: BorderSide(color: Colors.grey.shade400, width: 1)),
     ),
+    // bottomAppBarTheme: BottomAppBarThemeData(
+    //   //height: 80,
+    //   //shape: CircularNotchedRectangle(),
+    //   //elevation: 8,
+    // ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: Color(0xFF0B132B),
       //indicatorColor: Colors.grey.shade800,

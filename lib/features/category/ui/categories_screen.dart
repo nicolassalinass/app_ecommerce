@@ -8,7 +8,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0, bottom: 8),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0, bottom: 100.0),
           child: Column(
             spacing: 20,
             crossAxisAlignment: CrossAxisAlignment.start,
