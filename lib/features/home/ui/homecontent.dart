@@ -1,5 +1,6 @@
 import 'package:app_ecomerce/features/products/ui/product_card.dart';
 import 'package:app_ecomerce/features/products/ui/providers/product_providers.dart';
+import 'package:app_ecomerce/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,11 +11,30 @@ class Homecontent extends ConsumerStatefulWidget {
   ConsumerState<Homecontent> createState() => _HomecontentState();
 }
 
-class _HomecontentState extends ConsumerState<Homecontent> {
+class _HomecontentState extends ConsumerState<Homecontent> with RouteAware{
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // El usuario volvió a esta pantalla desde otra
+    ref.read(productNotifierProvider.notifier).refresh();
+  }
+
 
   List<String> options = ['Todos', 'Ofertas', 'Novedades', 'Populares'];
   int selectedIndex = 0;
-
+  
   @override
   Widget build(BuildContext context) {
     final productState = ref.watch(productNotifierProvider);
@@ -41,6 +61,7 @@ class _HomecontentState extends ConsumerState<Homecontent> {
                   if (selected) {
                     setState(() => selectedIndex = i);
                   }
+                  ref.invalidate(productNotifierProvider);
                 },
               );
             }),

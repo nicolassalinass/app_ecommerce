@@ -1,22 +1,35 @@
-import 'package:app_ecomerce/features/products/ui/card_product_cart.dart';
+import 'package:app_ecomerce/core/utils/currency_formatter.dart';
+import 'package:app_ecomerce/features/cart/ui/card_product_cart.dart';
+import 'package:app_ecomerce/features/cart/ui/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CartShoppingScreen extends StatelessWidget {
+class CartShoppingScreen extends ConsumerWidget {
   const CartShoppingScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Obtener estados del carrito
+    final cartItems = ref.watch(cartProvider);
+    final total = ref.read(cartProvider.notifier).total;
+
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return CardProductCart();
-                },
-              ),
+              child: cartItems.isEmpty 
+              ? Center(
+                  child: Text("El carrito está vacío", style: TextStyle(fontSize: 18),),
+                ) 
+              : ListView.builder(
+                  itemCount: cartItems.length,
+                  itemBuilder: (context, index) {
+                    final item = cartItems[index];
+                    return CardProductCart(cartItem: item,);
+                  },
+                ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -35,7 +48,7 @@ class CartShoppingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Subotal:", style: TextStyle(fontSize: 18,),),
-                        Text("Gs. 3.500.000", style: TextStyle(fontSize: 18,),),
+                        Text(CurrencyFormatter.guaraniFormat(total), style: TextStyle(fontSize: 18,),),
                       ],
                     ),
                     Row(
@@ -49,7 +62,7 @@ class CartShoppingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Total:", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                        Text("Gs. 3.500.000", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        Text(CurrencyFormatter.guaraniFormat(total), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                       ],
                     ),
                     

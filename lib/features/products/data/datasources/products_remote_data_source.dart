@@ -16,7 +16,7 @@ class ProductRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   @override
   Future<List<ProductModel>> getProducts() async {
-    final response = await client.get(Uri.parse('$baseUrl/products'));
+    final response = await client.get(Uri.parse('$baseUrl/product/getAllProducts'));
 
     if (response.statusCode == 200) {
       final List data = jsonDecode(response.body);

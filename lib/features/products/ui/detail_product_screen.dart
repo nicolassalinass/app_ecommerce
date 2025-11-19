@@ -1,13 +1,17 @@
+import 'package:app_ecomerce/features/cart/ui/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/products/domain/entities/product.dart';
+//import 'package:app_ecomerce/features/products/ui/providers/product_providers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DetailProductScreen extends StatelessWidget {
-  const DetailProductScreen({super.key});
+class DetailProductScreen extends ConsumerWidget {
+  final Product product;
+  const DetailProductScreen({super.key, required this.product});
 
   // AlojarImagenes1! Clouddinary
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detalle del Producto"),
@@ -19,13 +23,14 @@ class DetailProductScreen extends StatelessWidget {
           children: [
             CarouselSlider(
               items: [
-                Image.asset('assets/laptop.png', fit: BoxFit.cover),
-                Image.asset('assets/laptop.png', fit: BoxFit.cover),
-                Image.asset('assets/laptop.png', fit: BoxFit.cover),
-                // Image.network('https://res.cloudinary.com/do1prceso/image/upload/v1759741817/samples/ecommerce/car-interior-design.jpg',
-                //   fit: BoxFit.cover,
-                // ),
+                
+                Image.network(
+                  product.imagen,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Image.asset("assets/image-not-found.png"),),
+                
               ],
+
               options: CarouselOptions(
                 //aspectRatio: 16/9,
                 //viewportFraction: 1,
@@ -36,15 +41,12 @@ class DetailProductScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              "Titulo del Producto",
+              product.nombre.toString(),
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
-              """Descripcion del Producto, 
-              Este es un texto de ejemplo para la descripcion del producto. Este es un texto de ejemplo para la descripcion del producto.
-              Este es un texto de ejemplo para la descripcion del producto.
-              Este es un texto de ejemplo para la descripcion del producto.""",
-              style: TextStyle(fontSize: 20),
+              product.descripcion.toString(),
+              style: TextStyle(fontSize: 16),
               textAlign: TextAlign.justify,
             )
           ],
@@ -60,7 +62,16 @@ class DetailProductScreen extends StatelessWidget {
             Expanded(
               child: FloatingActionButton(
                 heroTag: "add_to_cart",
-                onPressed: null,
+                onPressed: (){
+                  //Agregar al carrito
+                  ref.read(cartProvider.notifier).addProduct(product);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Producto agregado al carrito"),
+                      duration: Duration(seconds: 1),
+                    )
+                  );
+                },
                 foregroundColor: Theme.of(context).colorScheme.primary,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 shape: RoundedRectangleBorder(
