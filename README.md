@@ -1,7 +1,7 @@
 # 🛒 Flutter E-Commerce App
 
 Flutter E-Commerce App es una aplicación móvil que esta siendo desarrollada en Flutter para con construcción de interfaces, navegación y manejo de estados en una app de compras.
-Actualmente, la app cuenta con pantallas de Login, Home, Detalle de Producto y Carrito. Utilizando Claean Architecture por feature.
+Actualmente, la app cuenta con pantallas de Login, Home, Detalle de Producto y Carrito. Utilizando Claean Architecture por feature. Se esta consumiendo una api basica de solo productos para prueba.
 El consumo de API y la persistencia de datos están pendientes de implementación.
 
 # Descripción
