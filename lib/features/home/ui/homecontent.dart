@@ -11,7 +11,7 @@ class Homecontent extends ConsumerStatefulWidget {
   ConsumerState<Homecontent> createState() => _HomecontentState();
 }
 
-class _HomecontentState extends ConsumerState<Homecontent> with RouteAware{
+class _HomecontentState extends ConsumerState<Homecontent> with RouteAware {
 
   @override
   void didChangeDependencies() {
@@ -28,16 +28,21 @@ class _HomecontentState extends ConsumerState<Homecontent> with RouteAware{
   @override
   void didPopNext() {
     // El usuario volvió a esta pantalla desde otra
-    ref.read(productNotifierProvider.notifier).refresh();
+    ref.read(autoRefreshProductsProvider);
   }
 
+  @override
+  void didPushNext() {
+    // El usuario salió de esta pantalla
+    ref.invalidate(autoRefreshProductsProvider);
+  }
 
   List<String> options = ['Todos', 'Ofertas', 'Novedades', 'Populares'];
   int selectedIndex = 0;
   
   @override
   Widget build(BuildContext context) {
-    final productState = ref.watch(productNotifierProvider);
+    final productState = ref.watch(autoRefreshProductsProvider);
     return Column(
       spacing: 10,
       children: [
@@ -78,7 +83,7 @@ class _HomecontentState extends ConsumerState<Homecontent> with RouteAware{
                   padding: const EdgeInsets.all(8),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 3 / 3.6,
+                    childAspectRatio: 3 / 3.2,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
                   ),
@@ -89,8 +94,11 @@ class _HomecontentState extends ConsumerState<Homecontent> with RouteAware{
                   },
                 );
               },
-              loading: () => const Center(child: CircularProgressIndicator()),
+              loading: () {
+                return Center(child: CircularProgressIndicator());
+              },
               error: (err, stack) => Center(child: Text('Error: $err')),
+              
             ),
           ),
         // Expanded(

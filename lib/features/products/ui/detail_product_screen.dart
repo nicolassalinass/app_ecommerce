@@ -1,4 +1,4 @@
-import 'package:app_ecomerce/features/cart/ui/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
 import 'package:app_ecomerce/features/products/domain/entities/product.dart';
 //import 'package:app_ecomerce/features/products/ui/providers/product_providers.dart';
 import 'package:carousel_slider/carousel_slider.dart';

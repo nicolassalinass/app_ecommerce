@@ -28,12 +28,5 @@ Future<void> initDependencies() async{
     () => GetProducts(sl<ProductRepository>()),
   );
 
-  // //Repository
-  // sl.registerLazySingleton(
-  //   () => ProductRepositoryImpl(remoteDataSource: sl<ProductsRemoteDataSource>()),
-  // );
-
-  // sl.registerLazySingleton(() => GetProducts(sl()));
-
 }
 

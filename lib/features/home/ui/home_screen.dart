@@ -1,7 +1,7 @@
-import 'package:app_ecomerce/features/cart/ui/cart_shopping_screen.dart';
+import 'package:app_ecomerce/features/cart/presentation/cart_shopping_screen.dart';
 import 'package:app_ecomerce/features/category/ui/categories_screen.dart';
 import 'package:app_ecomerce/features/account_settings/ui/pages/client_account_screen.dart';
-import 'package:app_ecomerce/features/history/ui/history_screen.dart';
+import 'package:app_ecomerce/features/favorites/presentation/favorites_screen.dart';
 import 'package:app_ecomerce/features/home/ui/homecontent.dart';
 import 'package:flutter/material.dart';
 
@@ -18,13 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedIndex = 0;
 
-  List<String> titulos = ['Inicio', 'Categorias', 'Carrito', 'Historial','Perfil'];
+  List<String> titulos = ['Inicio', 'Categorias', 'Carrito', 'Favoritos','Perfil'];
 
   List<Widget> pages = [
     const Homecontent(),
     const CategoriesScreen(),
     const CartShoppingScreen(),
-    const HistoryScreen(),
+    const FavoritesScreen(),
     const ClientAccountScreen()
   ];
 
@@ -78,9 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
               selectedIcon: Icon(Icons.shopping_cart),
             ),
             NavigationDestination(
-              icon: Icon(Icons.history_outlined), 
-              label: 'Historial',
-              selectedIcon: Icon(Icons.history),
+              icon: Icon(Icons.favorite_border), 
+              label: 'Favoritos',
+              selectedIcon: Icon(Icons.favorite),
             ),
             NavigationDestination(
               icon: Icon(Icons.person_outline), 

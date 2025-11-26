@@ -1,6 +1,6 @@
 import 'package:app_ecomerce/core/utils/currency_formatter.dart';
 import 'package:app_ecomerce/features/cart/domain/entities/cart.dart';
-import 'package:app_ecomerce/features/cart/ui/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
 import 'package:app_ecomerce/features/products/ui/detail_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,8 +41,8 @@ class CardProductCart extends ConsumerWidget {
                     return Image.asset("assets/image-not-found.png");
                   }, 
                   height: screenHeight * 0.12, 
-                  width: screenWidth * 0.25,
-                  
+                  width: screenWidth * 0.35,
+                  fit: BoxFit.contain,
                 )
               ),
               Expanded(
