@@ -1,10 +1,10 @@
 import 'package:app_ecomerce/config/depends/dependency_injection.dart';
+import 'package:app_ecomerce/config/routes/app_routes.dart';
 import 'package:app_ecomerce/config/theme/theme.dart';
-import 'package:app_ecomerce/features/auth/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+//final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +18,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'App E-commerce',
       darkTheme: AppTheme.darkTheme,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.system,
-      navigatorObservers: [routeObserver],
-      home: LoginScreen(),
+      // navigatorObservers: [routeObserver],
+      routerConfig: appRouter,
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:app_ecomerce/core/utils/currency_formatter.dart';
 import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
 import 'package:app_ecomerce/features/favorites/domain/entities/favorites.dart';
 import 'package:app_ecomerce/features/favorites/presentation/providers/favorite_providers.dart';
-import 'package:app_ecomerce/features/products/ui/detail_product_screen.dart';
+import 'package:app_ecomerce/features/products/presentation/detail_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,7 +30,8 @@ class FavoriteProductCard extends ConsumerWidget {
         child: Container(
           padding: const EdgeInsets.all(12.0),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade500, width: 0.3),
+            // border: Border.all(color: Colors.grey.shade500, width: 0.3),
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
             borderRadius: BorderRadius.circular(10),
           ),
           height: screenHeight * 0.135,

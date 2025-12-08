@@ -1,3 +1,7 @@
+import 'package:app_ecomerce/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:app_ecomerce/features/auth/data/repositories/login_repository_impl.dart';
+import 'package:app_ecomerce/features/auth/domain/repositories/auth_repository.dart';
+import 'package:app_ecomerce/features/auth/domain/usecases/login_user.dart';
 import 'package:app_ecomerce/features/products/data/datasources/products_remote_data_source.dart';
 import 'package:app_ecomerce/features/products/data/repositories/product_repository_impl.dart';
 import 'package:app_ecomerce/features/products/domain/repositories/product_repository.dart';
@@ -12,6 +16,22 @@ Future<void> initDependencies() async{
   // Cliente Http
   sl.registerLazySingleton(() => http.Client());
 
+  // DataSource
+  sl.registerLazySingleton<AuthRemoteDataSource>(
+        () => AuthRemoteDataSourceImpl(client: sl(), baseUrl: "http://192.168.0.160:8000"),
+  );
+
+  //Repository
+  sl.registerLazySingleton<AuthRepository>(
+        () => LoginRepositoryImpl(remoteDataSource: sl<AuthRemoteDataSource>()),
+  );
+
+  //Usecase
+  sl.registerLazySingleton<LoginUser>(
+        () => LoginUser(sl<AuthRepository>()),
+  );
+
+  /********************* PRODUCTOS *********************/
   // DataSource
   sl.registerLazySingleton<ProductsRemoteDataSource>(
     () => ProductRemoteDataSourceImpl(

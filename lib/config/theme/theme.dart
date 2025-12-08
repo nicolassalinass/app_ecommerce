@@ -3,12 +3,22 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.grey.shade100,
     colorScheme: ColorScheme.light(
-      primary: Colors.blue.shade800,
-      secondary: const Color.fromARGB(255, 215, 237, 255),
-      onPrimary: Colors.white,
+      primary: Colors.blue,
+      secondary: Colors.blue.shade100,
+      onPrimaryContainer: Colors.white,
+      onSecondaryContainer: Colors.grey.shade100,
       brightness: Brightness.light
+    ),
+    searchBarTheme: SearchBarThemeData(
+      elevation: WidgetStatePropertyAll(0),
+      backgroundColor: WidgetStatePropertyAll(Colors.grey.shade200),
+      shape: WidgetStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
@@ -28,15 +38,15 @@ class AppTheme {
         TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
       ),
     ),
-    cardTheme: CardThemeData(
-      color: Colors.white,
-      shadowColor: Colors.grey.shade200,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-        side: BorderSide(color: Colors.grey.shade200),
-      ),
-      elevation: 0,
-    ),
+    // cardTheme: CardThemeData(
+    //   color: Colors.white,
+    //   shadowColor: Colors.grey.shade200,
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(15),
+    //     side: BorderSide(color: Colors.grey.shade200),
+    //   ),
+    //   elevation: 0,
+    // ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Colors.black, fontSize: 16),
       filled: true,
@@ -45,6 +55,7 @@ class AppTheme {
       //   borderRadius: BorderRadius.circular(10),
       //   borderSide: BorderSide.none,
       // ),
+      border: InputBorder.none,
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(50),
         borderSide: BorderSide.none,
@@ -84,9 +95,14 @@ class AppTheme {
       primary: Colors.blue,
       secondary: const Color(0xFF162553),
       onPrimary: Colors.white,
+      onSecondary: Colors.white10,
+      onPrimaryContainer: Colors.white10,
+      onSecondaryContainer: Colors.white12,
       //background: const Color(0xFF0B132B),,
       //surface: Color(0xFF1E1E1E),
-      surface: Color(0xFF0B132B),
+      //onSurface: Colors.black,
+      surface: Color
+        (0xFF0B132B),
       brightness: Brightness.dark,
     ),
     appBarTheme: AppBarTheme(
@@ -112,6 +128,15 @@ class AppTheme {
       }),
       labelTextStyle: WidgetStatePropertyAll(
         TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey),
+      ),
+    ),
+    searchBarTheme: SearchBarThemeData(
+      elevation: WidgetStatePropertyAll(0),
+      backgroundColor: WidgetStatePropertyAll(Colors.white12),
+      shape: WidgetStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -148,14 +173,15 @@ class AppTheme {
       //secondarySelectedColor: Colors.grey.shade700,
       brightness: Brightness.dark,
     ),
-    cardTheme: CardThemeData(
-      color: Color.fromARGB(255, 31, 33, 54),
-      shadowColor: Colors.grey.shade200,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-        //side: BorderSide(color: Colors.blue),
-      ),
-      elevation: 0,
-    ),
+    // cardTheme: CardThemeData(
+    //   //color: Color.fromARGB(255, 31, 33, 54),
+    //   color: Colors.white10,
+    //   shadowColor: Colors.grey.shade200,
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(15),
+    //     //side: BorderSide(color: Colors.blue),
+    //   ),
+    //   elevation: 0,
+    // ),
   );
 }
