@@ -1,5 +1,5 @@
 import 'package:app_ecomerce/features/auth/presentation/provider/auth_provider.dart';
-import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_remote_provider.dart';
 import 'package:app_ecomerce/features/products/domain/entities/product.dart';
 //import 'package:app_ecomerce/features/products/presentation/providers/product_providers.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,8 @@ class DetailProductScreen extends ConsumerWidget {
                   heroTag: "add_to_cart",
                   onPressed: (){
                     //Agregar al carrito
-                    ref.read(cartProvider.notifier).addProduct(product);
+                    ref.read(cartRemoteNotifierProvider.notifier).addToCart(product.id!, 1);
+                    ref.invalidate(cartRemoteNotifierProvider);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text("Producto agregado al carrito"),

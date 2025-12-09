@@ -1,5 +1,5 @@
 import 'package:app_ecomerce/core/utils/currency_formatter.dart';
-import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_remote_provider.dart';
 import 'package:app_ecomerce/features/favorites/domain/entities/favorites.dart';
 import 'package:app_ecomerce/features/favorites/presentation/providers/favorite_providers.dart';
 import 'package:app_ecomerce/features/products/presentation/detail_product_screen.dart';
@@ -79,9 +79,8 @@ class FavoriteProductCard extends ConsumerWidget {
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            ref
-                                .read(cartProvider.notifier)
-                                .addProduct(favorite.product);
+                            ref.read(cartRemoteNotifierProvider.notifier).addToCart(favorite.product.id!, 1);
+                            ref.read(cartRemoteNotifierProvider.notifier).refresh();
                             final snackBar = SnackBar(
                               content: Text(
                                 '${favorite.product.nombre} agregado al carrito.',

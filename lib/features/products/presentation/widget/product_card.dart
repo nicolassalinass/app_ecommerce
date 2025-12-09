@@ -1,5 +1,5 @@
 import 'package:app_ecomerce/core/utils/currency_formatter.dart';
-import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_remote_provider.dart';
 import 'package:app_ecomerce/features/favorites/presentation/widgets/favorite_button.dart';
 import 'package:app_ecomerce/features/products/domain/entities/product.dart';
 import 'package:app_ecomerce/features/products/presentation/detail_product_screen.dart';
@@ -98,7 +98,8 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              ref.read(cartProvider.notifier).addProduct(widget.producto);
+                              ref.read(cartRemoteNotifierProvider.notifier).addToCart(widget.producto.id!, 1);
+                              ref.read(cartRemoteNotifierProvider.notifier).refresh();
                               final snackBar = SnackBar(
                                 content: Text('${widget.producto.nombre} agregado al carrito.'),
                                 duration: const Duration(seconds: 1),

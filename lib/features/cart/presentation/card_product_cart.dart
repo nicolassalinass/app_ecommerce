@@ -1,12 +1,12 @@
 import 'package:app_ecomerce/core/utils/currency_formatter.dart';
 import 'package:app_ecomerce/features/cart/domain/entities/cart.dart';
-import 'package:app_ecomerce/features/cart/presentation/provider/cart_provider.dart';
+import 'package:app_ecomerce/features/cart/presentation/provider/cart_remote_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class CardProductCart extends ConsumerWidget {
-  final Cart cartItem;
+  final Item cartItem;
 
   const CardProductCart({super.key, required this.cartItem});
 
@@ -69,12 +69,39 @@ class CardProductCart extends ConsumerWidget {
                       Row(
                         children: [
                           IconButton(
-                            onPressed: () {ref.read(cartProvider.notifier).decreaseProduct(cartItem.product);},
-                            icon: Icon(Icons.remove_circle, size: 30, color: Colors.grey,),
+                            onPressed: cartItem.quantity > 1 ? () async {
+                              try {
+                                await ref.read(cartRemoteNotifierProvider.notifier)
+                                    .decrementQuantity(cartItem.id!, cartItem.quantity);
+                              } catch (e) {
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Error al actualizar cantidad: $e')),
+                                  );
+                                }
+                              }
+                            } : null,
+                            icon: Icon(
+                              Icons.remove_circle, 
+                              size: 30, 
+                              color: cartItem.quantity > 1 ? Colors.grey : Colors.grey.shade300,
+                            ),
                           ),
-                          Text(cartItem.cantidad.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                          Text(cartItem.quantity.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
                           IconButton(
-                            onPressed: () {ref.read(cartProvider.notifier).addProduct(cartItem.product);},
+                            onPressed: () async {
+                              try {
+                                await ref.read(cartRemoteNotifierProvider.notifier)
+                                    .incrementQuantity(cartItem.id!, cartItem.quantity);
+                                ref.invalidate(cartRemoteNotifierProvider);
+                              } catch (e) {
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Error al actualizar cantidad: $e')),
+                                  );
+                                }
+                              }
+                            },
                             icon: Icon(Icons.add_circle, size: 30, color: Colors.grey,),
                           ),
                         ],
@@ -83,8 +110,17 @@ class CardProductCart extends ConsumerWidget {
                   ),
                 ),
               ),
-              IconButton(onPressed: () {
-                ref.read(cartProvider.notifier).removeProduct(cartItem.product);
+              IconButton(onPressed: () async {
+                try {
+                  await ref.read(cartRemoteNotifierProvider.notifier)
+                      .removeFromCart(cartItem.id!);
+                } catch (e) {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Error al eliminar producto: $e')),
+                    );
+                  }
+                }
               }, icon: Icon(Icons.delete, color: Colors.grey.shade600,size: 28,))
             ],
           ),

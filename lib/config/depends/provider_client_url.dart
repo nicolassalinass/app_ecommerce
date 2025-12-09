@@ -9,5 +9,5 @@ final httpClientProvider = Provider<http.Client>((ref) {
 // Provider para la URL base (cámbiala según tu API)
 final baseUrlProvider = Provider<String>((ref) {
   //return 'https://api.neptunesteam.store'; // TODO: Cambiar por tu URL real
-  return 'http://192.168.0.102:8000'; // URL de desarrollo local
+  return 'http://192.168.0.118:8000'; // URL de desarrollo local
 });

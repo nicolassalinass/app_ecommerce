@@ -3,6 +3,7 @@ import 'package:app_ecomerce/features/home/presentation/admin/widget/card_view.d
 import 'package:app_ecomerce/features/home/presentation/admin/widget/grafic_linear.dart';
 import 'package:app_ecomerce/features/home/presentation/admin/widget/manage_list.dart';
 import 'package:app_ecomerce/features/home/presentation/admin/widget/selection_period.dart';
+import 'package:app_ecomerce/features/products/presentation/providers/product_providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -94,56 +95,56 @@ class HomeAdminScreen extends ConsumerWidget {
                 ],
               ),
               SizedBox(height: 16,),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  //border: Border.all(color: Colors.grey.shade100),
-                    color: Theme.of(context).colorScheme.onPrimaryContainer
-                ),
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Resumen de Ventas",
-                      style: TextStyle(
-                          fontSize: 18,
-                        fontWeight: FontWeight.w700
-                      ),
-                    ),
-                    SizedBox(height: 16,),
-                    SelectionPeriod(),
-                    SizedBox(height: 16,),
-                    Text(
-                      "Gs. 34.125.500",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    Row(
-                      spacing: 20,
-                      children: [
-                        Text(
-                            "Ultimos 7 dias",
-                          style: TextStyle(
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                        Text(
-                          "+15.2%",
-                          style: TextStyle(
-                            color: Colors.green.shade400
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 16,),
-                    GraficLinear()
-                  ],
-                ),
-              ),
+              // Container(
+              //   width: double.infinity,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(20),
+              //     //border: Border.all(color: Colors.grey.shade100),
+              //       color: Theme.of(context).colorScheme.onPrimaryContainer
+              //   ),
+              //   padding: EdgeInsets.all(16),
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text(
+              //         "Resumen de Ventas",
+              //         style: TextStyle(
+              //             fontSize: 18,
+              //           fontWeight: FontWeight.w700
+              //         ),
+              //       ),
+              //       SizedBox(height: 16,),
+              //       SelectionPeriod(),
+              //       SizedBox(height: 16,),
+              //       Text(
+              //         "Gs. 34.125.500",
+              //         style: TextStyle(
+              //             fontSize: 20,
+              //             fontWeight: FontWeight.bold
+              //         ),
+              //       ),
+              //       Row(
+              //         spacing: 20,
+              //         children: [
+              //           Text(
+              //               "Ultimos 7 dias",
+              //             style: TextStyle(
+              //               color: Colors.grey.shade500,
+              //             ),
+              //           ),
+              //           Text(
+              //             "+15.2%",
+              //             style: TextStyle(
+              //               color: Colors.green.shade400
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //       SizedBox(height: 16,),
+              //       GraficLinear()
+              //     ],
+              //   ),
+              // ),
 
               /********************* Administracion de prducto, orden y usuario **************/
               SizedBox(height: 16,),
