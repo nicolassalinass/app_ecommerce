@@ -1,4 +1,3 @@
-import 'package:app_ecomerce/features/users/domain/entities/user.dart';
 import 'package:app_ecomerce/features/users/presentation/provider/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';

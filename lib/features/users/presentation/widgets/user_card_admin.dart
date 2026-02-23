@@ -1,4 +1,3 @@
-import 'package:app_ecomerce/features/users/domain/entities/user.dart';
 import 'package:app_ecomerce/features/users/presentation/provider/user_notifier_provider.dart';
 import 'package:app_ecomerce/features/users/presentation/provider/user_provider.dart';
 import 'package:app_ecomerce/features/users/presentation/screens/update_user_screen.dart';

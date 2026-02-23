@@ -1,9 +1,6 @@
 import 'package:app_ecomerce/features/auth/presentation/provider/auth_provider.dart';
 import 'package:app_ecomerce/features/home/presentation/admin/widget/card_view.dart';
-import 'package:app_ecomerce/features/home/presentation/admin/widget/grafic_linear.dart';
 import 'package:app_ecomerce/features/home/presentation/admin/widget/manage_list.dart';
-import 'package:app_ecomerce/features/home/presentation/admin/widget/selection_period.dart';
-import 'package:app_ecomerce/features/products/presentation/providers/product_providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

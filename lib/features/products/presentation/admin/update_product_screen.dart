@@ -310,7 +310,7 @@ class _UpdateProductScreenState extends ConsumerState<UpdateProductScreen> {
                       child: DropdownButtonFormField<String>(
                         isExpanded: true,
                         hint: Text("Selecciona una categoria"),
-                        value: _selectedCategory,
+                        initialValue: _selectedCategory,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),

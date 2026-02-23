@@ -225,7 +225,7 @@ class _UpdateUserScreenState extends ConsumerState<UpdateUserScreen> {
                           ),
                         ),
                         DropdownButtonFormField(
-                          value: _selectedRole,
+                          initialValue: _selectedRole,
                           hint: Text('Selecciona un rol'),
                           decoration: InputDecoration(
                             errorText: _showErrors && _selectedRole == null ? 'Selecciona un rol' : null,

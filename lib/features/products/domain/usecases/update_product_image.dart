@@ -1,4 +1,3 @@
-import 'package:app_ecomerce/features/products/domain/entities/product.dart';
 import 'package:app_ecomerce/features/products/domain/repositories/product_repository.dart';
 import 'package:image_picker/image_picker.dart';
 

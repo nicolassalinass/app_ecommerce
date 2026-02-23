@@ -93,7 +93,7 @@ class ProductRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   }
 
-  /******* Actualizar producto ************/
+  /// ***** Actualizar producto ***********
 
   @override
   Future<Product> updateProduct(int productId, Product product, String token) async {

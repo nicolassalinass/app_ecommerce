@@ -1,5 +1,4 @@
 import 'package:app_ecomerce/config/depends/provider_client_url.dart';
-import 'package:app_ecomerce/features/auth/domain/entities/register.dart';
 import 'package:app_ecomerce/features/auth/domain/usecases/register_user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app_ecomerce/features/auth/domain/entities/login.dart';
